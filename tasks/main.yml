@@ -6,12 +6,22 @@
 - name: Define jenkins_repo_url
   set_fact:
     jenkins_repo_url: "{{ __jenkins_repo_url }}"
-  when: jenkins_repo_url is not defined
+  when: jenkins_repo_url is not defined and not jenkins_lts
 
 - name: Define jenkins_repo_key_url
   set_fact:
     jenkins_repo_key_url: "{{ __jenkins_repo_key_url }}"
-  when: jenkins_repo_key_url is not defined
+  when: jenkins_repo_key_url is not defined and not jenkins_lts
+
+- name: Define LTS jenkins_repo_url
+  set_fact:
+    jenkins_repo_url: "{{ __jenkins_lts_repo_url }}"
+  when: jenkins_repo_url is not defined and jenkins_lts
+
+- name: Define LTS jenkins_repo_key_url
+  set_fact:
+    jenkins_repo_key_url: "{{ __jenkins_lts_repo_key_url }}"
+  when: jenkins_repo_key_url is not defined and jenkins_lts
 
 # Setup/install tasks.
 - include: setup-RedHat.yml

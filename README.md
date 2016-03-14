@@ -24,6 +24,11 @@ The HTTP port for Jenkins' web interface.
 
 The location at which the `jenkins-cli.jar` jarfile will be kept. This is used for communicating with Jenkins via the CLI.
 
+
+    jenkins_lts: True
+
+Use LTS releses by default. Set ti `False` to fetch latest non-LTS version.
+
     jenkins_plugins:
       - git
       - sonar
