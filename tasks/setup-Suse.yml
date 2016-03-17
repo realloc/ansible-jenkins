@@ -1,6 +1,9 @@
 ---
 - name: Ensure dependencies are installed.
-  zypper: name=curl state=installed
+  zypper: "name={{ item }} state=installed"
+  with_items:
+    - curl
+    - dejavu-fonts
 
 - name: Add Jenkins zypper repository.
   zypper_repository:
