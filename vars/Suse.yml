@@ -1,0 +1,7 @@
+---
+__jenkins_repo_url: http://pkg.jenkins-ci.org/opensuse/
+__jenkins_repo_key_url: False
+__jenkins_lts_repo_url: http://pkg.jenkins-ci.org/opensuse-stable/
+__jenkins_lts_repo_key_url: False
+jenkins_init_file: /etc/sysconfig/jenkins
+jenkins_http_port_param: HTTP_PORT
