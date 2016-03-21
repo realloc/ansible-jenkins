@@ -1,0 +1,16 @@
+---
+- name: Ensure dependencies are installed.
+  zypper: "name={{ item }} state=installed"
+  with_items:
+    - curl
+    - dejavu-fonts
+
+- name: Add Jenkins zypper repository.
+  zypper_repository:
+    name: jenkins
+    repo: "{{ jenkins_repo_url }}"
+    state: present
+    disable_gpg_check: yes
+
+- name: Ensure Jenkins is installed.
+  zypper: pkg=jenkins state=installed
